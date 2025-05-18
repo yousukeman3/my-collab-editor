@@ -9,12 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@cloudflare/next-on-pages": "1",
     "@tiptap/extension-collaboration": "^2.12.0",
     "@tiptap/extension-collaboration-cursor": "^2.12.0",
     "@tiptap/react": "^2.12.0",
     "@tiptap/starter-kit": "^2.12.0",
-    "eslint-plugin-next-on-pages": "^1.13.12",
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -22,6 +20,7 @@
     "yjs": "^13.6.27"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "1",
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
@@ -29,6 +28,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
+    "eslint-plugin-next-on-pages": "^1.13.12",
+    "next-dev": "link:@cloudflare/next-on-pages/next-dev",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@cloudflare/next-on-pages':
-        specifier: '1'
-        version: 1.13.12(vercel@41.7.8)(wrangler@4.15.2)
       '@tiptap/extension-collaboration':
         specifier: ^2.12.0
         version: 2.12.0(@tiptap/core@2.12.0(@tiptap/pm@2.12.0))(@tiptap/pm@2.12.0)(y-prosemirror@1.3.5(prosemirror-model@1.25.1)(prosemirror-state@1.4.3)(prosemirror-view@1.39.3)(y-protocols@1.0.6(yjs@13.6.27))(yjs@13.6.27))
@@ -23,9 +20,6 @@ importers:
       '@tiptap/starter-kit':
         specifier: ^2.12.0
         version: 2.12.0
-      eslint-plugin-next-on-pages:
-        specifier: ^1.13.12
-        version: 1.13.12(eslint@9.27.0(jiti@2.4.2))
       next:
         specifier: 15.3.2
         version: 15.3.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -42,6 +36,9 @@ importers:
         specifier: ^13.6.27
         version: 13.6.27
     devDependencies:
+      '@cloudflare/next-on-pages':
+        specifier: '1'
+        version: 1.13.12(vercel@41.7.8)(wrangler@4.15.2)
       '@eslint/eslintrc':
         specifier: ^3
         version: 3.3.1
@@ -63,6 +60,12 @@ importers:
       eslint-config-next:
         specifier: 15.3.2
         version: 15.3.2(eslint@9.27.0(jiti@2.4.2))(typescript@5.8.3)
+      eslint-plugin-next-on-pages:
+        specifier: ^1.13.12
+        version: 1.13.12(eslint@9.27.0(jiti@2.4.2))
+      next-dev:
+        specifier: link:@cloudflare/next-on-pages/next-dev
+        version: link:@cloudflare/next-on-pages/next-dev
       tailwindcss:
         specifier: ^4
         version: 4.1.7
