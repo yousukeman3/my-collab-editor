@@ -1,5 +1,0 @@
-name = "my-collab-editor"
-main = ".vercel/output/static/_worker.js"
-compatibility_date = "2024-05-18" # ← 今日の日付や直近の日付に！
-
-compatibility_flags = ["nodejs_compat"]
