@@ -1,46 +1,41 @@
+'use client'
+
+import { useEffect, useState } from 'react'
 import { Editor } from '@tiptap/core'
+import StarterKit from '@tiptap/starter-kit'
 import Collaboration from '@tiptap/extension-collaboration'
 import CollaborationCursor from '@tiptap/extension-collaboration-cursor'
-import StarterKit from '@tiptap/starter-kit'
-import { useEffect, useMemo } from 'react'
 import { WebsocketProvider } from 'y-websocket'
 import * as Y from 'yjs'
-// 省略…
 
 export function useCollabEditor(roomId: string) {
-  // ① Y.Doc & Provider
-  const { ydoc, provider } = useMemo(() => {
+  const [editor, setEditor] = useState<Editor | null>(null)
+
+  useEffect(() => {
+    // 1) ブラウザでのみ実行
     const ydoc = new Y.Doc()
 
+    // provider:   root URL         room name     ydoc
     const provider = new WebsocketProvider(
       `${process.env.NEXT_PUBLIC_WS_ENDPOINT}/room`,
-      roomId,           // room name (= DO id)
+      roomId,
       ydoc,
     )
-    // provider.awareness にカーソル情報が入る
 
-    return { ydoc, provider }
+    const ed = new Editor({
+      extensions: [
+        StarterKit,
+        Collaboration.configure({ document: ydoc }),
+        CollaborationCursor.configure({
+          provider,
+          user: { name: 'anon', color: '#38bdf8' },
+        }),
+      ],
+    })
+
+    setEditor(ed)
+    return () => ed.destroy()           // 自動クリーンアップ
   }, [roomId])
 
-  // ② TipTap Editor
-  const editor = useMemo(
-    () =>
-      new Editor({
-        extensions: [
-          StarterKit,
-          Collaboration.configure({ document: ydoc }),
-          CollaborationCursor.configure({
-            provider,                     // ここに WebsocketProvider
-            user: {
-              name: 'anon',
-              color: '#38bdf8',
-            },
-          }),
-        ],
-      }),
-    [ydoc, provider],
-  )
-
-  useEffect(() => () => editor.destroy(), [editor])
   return editor
 }
