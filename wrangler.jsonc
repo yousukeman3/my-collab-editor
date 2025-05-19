@@ -31,7 +31,9 @@
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
 	 */
 	"vars": { 
-		"NODE_VERSION": "v24.0.1" 
+		"NODE_VERSION": "v24.0.1" ,
+		"NEXT_PUBLIC_WS_ENDPOINT": "wss://websocket-do-demo.yousukeman3.workers.dev"
+		
 	}
 	/**
 	 * Note: Use secrets to store sensitive data.

@@ -1,8 +1,10 @@
 'use client'
 
-import { useParams } from 'next/navigation'
-import { EditorContent } from '@tiptap/react'
-import { useCollabEditor } from '@/lib/useCollabEditor'
+export const runtime = 'edge'; 
+
+import { useCollabEditor } from '@/lib/useCollabEditor';
+import { EditorContent } from '@tiptap/react';
+import { useParams } from 'next/navigation';
 
 export default function RoomPage() {
   const { id } = useParams<{ id: string }>()
