@@ -1,10 +1,10 @@
-import { useMemo, useEffect } from 'react'
 import { Editor } from '@tiptap/core'
-import StarterKit from '@tiptap/starter-kit'
 import Collaboration from '@tiptap/extension-collaboration'
 import CollaborationCursor from '@tiptap/extension-collaboration-cursor'
-import * as Y from 'yjs'
+import StarterKit from '@tiptap/starter-kit'
+import { useEffect, useMemo } from 'react'
 import { WebsocketProvider } from 'y-websocket'
+import * as Y from 'yjs'
 // 省略…
 
 export function useCollabEditor(roomId: string) {
@@ -13,7 +13,7 @@ export function useCollabEditor(roomId: string) {
     const ydoc = new Y.Doc()
 
     const provider = new WebsocketProvider(
-      `${process.env.NEXT_PUBLIC_WS_ENDPOINT}/room/${roomId}`,
+      `${process.env.NEXT_PUBLIC_WS_ENDPOINT}/room`,
       roomId,           // room name (= DO id)
       ydoc,
     )
