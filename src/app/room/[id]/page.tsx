@@ -1,10 +1,11 @@
 import CollabEditor from "@/components/CollabEditor";
 
-export default function Room({ params }: { params: { id: string } }) {
+export default async function Room({ params }: { params: Promise<{ id: string }> }) {
+  var id = (await params).id;
   return (
     <div>
-      <h1>Room ID: {params.id}</h1>
-      <CollabEditor roomId={params.id} />
+      <h1>Room ID: {id}</h1>
+      <CollabEditor roomId={id} />
     </div>
   );
 }
