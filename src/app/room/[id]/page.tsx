@@ -1,19 +1,15 @@
-export const runtime = 'edge'          // ← 必須！ (Server ≠ 'use client')
+export const runtime = 'edge'          // Edge で実行
 
-import dynamic from 'next/dynamic'
+import EditorClient from './EditorClient'
 
 type Props = { params: { id: string } }
-
-// Editor クライアント部分は SSR しないでブラウザ実行
-const EditorClient = dynamic(() => import('./EditorClient'), { ssr: false })
 
 export default function RoomPage({ params }: Props) {
   const { id } = params
   return (
     <main className="p-4">
       <h1 className="text-xl font-bold mb-4">Room: {id}</h1>
-      {/* クライアント側 TipTap */}
-      <EditorClient id={id} />
+      <EditorClient id={id} />         {/* ← そのまま呼ぶ */}
     </main>
   )
 }
