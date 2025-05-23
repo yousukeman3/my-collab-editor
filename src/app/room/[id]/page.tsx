@@ -1,12 +1,6 @@
 import CollabEditor from "@/components/CollabEditor";
 
-type Props = {
-  params: {
-    id: string;
-  };
-};
-
-export default function Page({ params }: Props) {
+export default function Page({ params }: { params: { id: string } }) {
   return (
     <div>
       <h1>Room ID: {params.id}</h1>
