@@ -1,14 +1,16 @@
-import { useCollabEditor } from '@/lib/useCollabEditor'
-import { EditorContent } from '@tiptap/react'
+import CollabEditor from "@/components/CollabEditor";
 
-export default function CollabEditor({ roomId }: { roomId: string }) {
-  const editor = useCollabEditor(roomId)
+type Props = {
+  params: {
+    id: string;
+  };
+};
 
-  if (!editor) return <div>Loading Editor...</div>
-
+export default function Page({ params }: Props) {
   return (
     <div>
-      <EditorContent editor={editor} />
+      <h1>Room ID: {params.id}</h1>
+      <CollabEditor roomId={params.id} />
     </div>
-  )
+  );
 }
