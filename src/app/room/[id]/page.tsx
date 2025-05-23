@@ -1,15 +1,14 @@
-export const runtime = 'edge'
+import { useCollabEditor } from '@/lib/useCollabEditor'
+import { EditorContent } from '@tiptap/react'
 
-import EditorClient from './EditorClient'
+export default function CollabEditor({ roomId }: { roomId: string }) {
+  const editor = useCollabEditor(roomId)
 
-export default function RoomPage(
-  { params }: { params: { id: string } }
-) {
-  const { id } = params                   // ← 型チェック OK
+  if (!editor) return <div>Loading Editor...</div>
+
   return (
-    <main className="p-4">
-      <h1 className="text-xl font-bold mb-4">Room: {id}</h1>
-      <EditorClient id={id} />            {/* Client Component */}
-    </main>
+    <div>
+      <EditorContent editor={editor} />
+    </div>
   )
 }
