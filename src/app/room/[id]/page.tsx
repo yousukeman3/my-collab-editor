@@ -1,20 +1,19 @@
-'use client'
+export const runtime = 'edge'          // ← 必須！ (Server ≠ 'use client')
 
-import { useCollabEditor } from '@/lib/useCollabEditor';
-import { EditorContent } from '@tiptap/react';
-import { useParams } from 'next/navigation';
+import dynamic from 'next/dynamic'
 
-export default function RoomPage() {
-  const { id } = useParams<{ id: string }>()
-  const editor = useCollabEditor(id)
+type Props = { params: { id: string } }
 
-  if (!editor) return null
+// Editor クライアント部分は SSR しないでブラウザ実行
+const EditorClient = dynamic(() => import('./EditorClient'), { ssr: false })
+
+export default function RoomPage({ params }: Props) {
+  const { id } = params
   return (
     <main className="p-4">
       <h1 className="text-xl font-bold mb-4">Room: {id}</h1>
-      <div className="border rounded shadow">
-        <EditorContent editor={editor} className="p-4 min-h-[400px]" />
-      </div>
+      {/* クライアント側 TipTap */}
+      <EditorClient id={id} />
     </main>
   )
 }
