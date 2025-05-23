@@ -1,7 +1,5 @@
 'use client'
 
-export const runtime = 'edge';
-
 import Collaboration from '@tiptap/extension-collaboration';
 import CollaborationCursor from '@tiptap/extension-collaboration-cursor';
 import { Editor } from '@tiptap/react';
