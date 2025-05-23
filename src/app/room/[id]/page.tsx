@@ -1,6 +1,8 @@
 import CollabEditor from "@/components/CollabEditor";
 
-export default async function Room({ params }: { params: Promise<{ id: string }> }) {
+export type Params = Promise<{ id: string }>;
+
+export default async function Room({ params }: { params: Params }) {
   const { id } = await params;
   return (
     <div>
