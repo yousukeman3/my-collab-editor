@@ -1,5 +1,7 @@
 import CollabEditor from "@/components/CollabEditor";
 
+export const runtime = "edge";
+
 export type Params = Promise<{ id: string }>;
 
 export default async function Room({ params }: { params: Params }) {

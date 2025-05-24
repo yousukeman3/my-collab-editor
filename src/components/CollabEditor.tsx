@@ -1,3 +1,5 @@
+'use client'
+
 import { useCollabEditor } from '@/lib/useCollabEditor'
 import { EditorContent } from '@tiptap/react'
 
