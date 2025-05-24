@@ -5,6 +5,7 @@ import CollaborationCursor from '@tiptap/extension-collaboration-cursor';
 import { Editor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import { useEffect, useState } from 'react';
+import { Markdown } from 'tiptap-markdown';
 import { WebsocketProvider } from 'y-websocket';
 import * as Y from 'yjs';
 
@@ -29,6 +30,7 @@ export function useCollabEditor(roomId: string) {
           provider,
           user: { name: 'anon', color: '#38bdf8' },
         }),
+        Markdown
       ],
     })
 
