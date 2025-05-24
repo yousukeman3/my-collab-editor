@@ -21,7 +21,9 @@ export function useCollabEditor(roomId: string) {
 
     const ed = new Editor({
       extensions: [
-        StarterKit,
+        StarterKit.configure({
+          history: false, // Disable history to avoid conflicts with Yjs
+        }),
         Collaboration.configure({ document: ydoc }),
         CollaborationCursor.configure({
           provider,
