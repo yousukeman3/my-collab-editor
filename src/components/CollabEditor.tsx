@@ -7,7 +7,7 @@ export default function CollabEditor({ roomId }: { roomId: string }) {
   if (!editor) return <div>Loading Editor...</div>
 
   return (
-    <div>
+    <div className="prose max-w-none">
       <EditorContent editor={editor} />
     </div>
   )
